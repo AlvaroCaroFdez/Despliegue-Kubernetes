@@ -9,9 +9,12 @@ En esta guía, se detallan los pasos necesarios para desplegar una aplicación F
 [3. Configuración de Kubernetes](#3-configuración-de-kubernetes)    
    - [3.1. Definición del Deployment](#31-definición-del-deployment)    
    - [3.2. Creación del Servicio](#32-creación-del-servicio)    
-   
+
 [4. Despliegue en Kubernetes](#4-despliegue-en-kubernetes)  
 [5. Verificación del Despliegue](#5-verificación-del-despliegue)  
+
+
+<br>
 
 
 ## 1. Creación de la aplicación FastAPI
@@ -134,6 +137,8 @@ async def delete_user(user_id: str):
     return {"message": "Usuario eliminado correctamente"}
 ```
 
+<br>
+
 ## 2. Creación del Dockerfile
 
 En el mismo directorio, se debe agregar un archivo `Dockerfile` con las instrucciones para construir la imagen del contenedor:
@@ -180,6 +185,8 @@ Para construir la imagen, se ejecuta el siguiente comando:
 ```bash
 docker build -t alvarokro/mi-api-segura .
 ```
+
+<br>
 
 ## 3. Configuración de Kubernetes
 
@@ -230,6 +237,8 @@ spec:
   type: LoadBalancer
 ```
 
+<br>
+
 ## 4. Despliegue en Kubernetes
 
 Si se está utilizando Docker Desktop en Windows, es necesario habilitar Kubernetes en **Configuración > Kubernetes**.
@@ -243,6 +252,8 @@ kubectl apply -f deployment.yaml
 kubectl apply -f service.yaml
 ```
 ![Despliegue aplicación](/img/kubectl-apply.png)
+
+<br>
 
 ## 5. Verificación del Despliegue
 
