@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fastapi-kubernetes
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: fastapi
+  template:
+    metadata:
+      labels:
+        app: fastapi
+    spec:
+      containers:
+      - name: fastapi
+        image: alvarokro/mi-api-segura:latest  # Reemplaza con la imagen que subiste
+        ports:
+        - containerPort: 8000
